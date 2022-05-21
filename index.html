@@ -7,6 +7,60 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
+    <script>
+        /* 
+        Step 1: Create a function called computerPlay that will randomly return
+        Rock, paper, or scissors. */
+
+        const gameOptions = ["Rock", "Paper", "Scissors"];
+        function computerPlay() {
+            randomOption = gameOptions[Math.floor(Math.random() * gameOptions.length)];
+            console.log(randomOption);
+        }
+
+        /* 
+        Step 2: Create another function to play a single round of Rock Paper Scissors
+        The function should take two parameters - the playerSelection and computerSelction
+        */ 
+
+        function mainGame(computerSelction, playerSelection) {
+            if (computerSelction === "Rock") {
+                if (playerSelection === "Scissors") {
+                    console.log("You Lose! Rock beats Scissors")
+                }
+                else if (playerSelection === "Paper") {
+                    console.log("You Win! Paper beats Rock")
+                }  
+                else {
+                    console.log("It's a Tie!")
+                }  
+            }
+            if (computerSelction === "Paper") {
+                if (playerSelection === "Scissors") {
+                    console.log("You Lose! Scissors beats Paper")
+                }
+                else if (playerSelection === "Rock") {
+                    console.log("You Win! Paper beats Rock")
+                }  
+                else {
+                    console.log("It's a Tie!")
+                }  
+            }
+            if (computerSelction === "Scissors") {
+                if (playerSelection === "Rock") {
+                    console.log("You Win! Rock beats Scissors")
+                }
+                else if (playerSelection === "Paper") {
+                    console.log("You Lose! Scissors beats Paper")
+                }  
+                else {
+                    console.log("It's a Tie!")
+                }  
+            }
+            
+            
+        }
+
+    </script>
 </body>
 </html>
