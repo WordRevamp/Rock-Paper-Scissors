@@ -11,10 +11,11 @@
 
     <script >
     const choices = ["rock", "paper", "scissors"]; 
-    const playerSelection = playerPlay();
-    const computerSelection = computerPlay();     
+    let playerSelection = playerPlay();
+    let computerSelection = computerPlay();     
 
     function playRound(playerSelection,computerSelection) { 
+        
 
         if (computerSelection == "rock") {
             if (playerSelection == "paper") {
@@ -39,7 +40,7 @@
             if (playerSelection == "rock") {
                 return "You Win:"
             } if (playerSelection == "paper"){
-                return "You Loser:"
+                return "You Lose:"
             } else {
                 return "Its a Tie:"
             }
@@ -58,14 +59,35 @@
     }
 
     function game() {
+        let playerCount = 0;
+        let computerCount = 0;
+        let tieCount = 0;
+
         for (let i = 0; i < 5; i++) {
-            return playRound(playerSelection,computerSelection);
+            let playerSelection = playerPlay(); 
+            let computerSelection = computerPlay();
+            let results = playRound(playerSelection,computerSelection);
+            console.log(results); 
+            if (results.includes("Win")) {
+                playerCount++;
+            } else if (results.includes("Lose")) {
+                computerCount++;
+            } else {
+                tieCount++;
+            }
+        }
+        if (playerCount > computerCount) {
+            console.log("You Defeated the Computer: " + playerCount + " to " + computerCount + ".")
+        } else if (playerCount < computerCount) {
+            console.log("The Computer Defeated You: " + computerCount + " to " + playerCount + ".")
+        } else {
+            console.log("This Game Ends in a Tie!")
         }
 
     }
    // console.log(computerSelection());
    // console.log(playRound(playerSelection,computerSelection));
-   console.log(game())
+    game();
     </script>
 </body>
 </html>
