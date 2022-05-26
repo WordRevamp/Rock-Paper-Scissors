@@ -1,38 +1,83 @@
 const choices = ["rock", "paper", "scissors"]; 
+       
 
-function game() {
-    playRound();
-}
+    function playRound(playerSelection,computerSelection) { 
+        
 
-function playRound() {
-const playerSelection = playerChoice();
-const computerSelcetion = computerChoice();
-}
+        if (computerSelection == "rock") {
+            if (playerSelection == "paper") {
+                return "You Win:"
+            } if (playerSelection == "scissors"){
+                return "You Lose:"
+            } else {
+                return "It's a Tie:"
+            }
+        }
+        if (computerSelection == "paper") {
+            if (playerSelection == "scissors") {
+                return "You Win:"
+            } if (playerSelection == "rock") {
+                return "You Lose:"
+            } else {
+                return "It's a Tie:"
+            }
 
-function playerChoice() {
-    let input = prompt('Type Rock, Paper or Scissors'); 
-    while (input == null) {
-        input = prompt('Type Rock, Paper or Scissors');
+        }
+        if (computerSelection == "scissors") {
+            if (playerSelection == "rock") {
+                return "You Win:"
+            } if (playerSelection == "paper"){
+                return "You Lose:"
+            } else {
+                return "Its a Tie:"
+            }
+        }
+ 
+    }
+    
+    function verifyInput(input) {
+        if (input == null) {
+            window.prompt("Select between Rock, Paper, or Scissors!")
+        }
+    }
+
+    function computerPlay() { 
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    function playerPlay() {
+        let input = window.prompt("Select between Rock, Paper, or Scissors!")
+        if (input == null) {
+            verifyInput();
+        }
+        return input.toLowerCase(); 
 
     }
-    input = input.toLowerCase(); 
-    let check = validateInput(input)
-    if (check == true) {
-        console.log(input);
+
+    function game() {
+        let playerCount = 0;
+        let computerCount = 0;
+        let tieCount = 0;
+
+        for (let i = 0; i < 5; i++) {
+            let playerSelection = playerPlay(); 
+            let computerSelection = computerPlay();
+            let results = playRound(playerSelection,computerSelection);
+            console.log(results); 
+            if (results.includes("Win")) {
+                playerCount++;
+            } else if (results.includes("Lose")) {
+                computerCount++;
+            } else {
+                tieCount++;
+            }
+        } 
+        if (playerCount > computerCount) {
+            console.log("You Defeated the Computer: " + playerCount + " to " + computerCount + ".")
+        } else if (playerCount < computerCount) {
+            console.log("The Computer Defeated You: " + computerCount + " to " + playerCount + ".")
+        } else {
+            console.log("This Game Ends in a Tie!")
+        }
+
     }
-    //console.log(input);
-}
-
-function computerChoice() {
-    return choices[Math.floor(Math.random() * gameOptions.length)];
-
-}
-
-function validateInput(arr) {
-    if (choices.includes(arr)) {
-        return true; 
-    } 
-        return false;
-    }
-
-game();

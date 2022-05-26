@@ -9,6 +9,10 @@
 <body>
 <h1> Rock, Paper, Scissors!</h1>
 
+<button id="rock">✊🏾</button>
+<button id="paper">✋🏾</button>
+<button id="scissors">✌🏾</button>
+
     <script >
     const choices = ["rock", "paper", "scissors"]; 
        
@@ -66,7 +70,7 @@
 
     }
 
-    function game() {
+  /*  function game() {
         let playerCount = 0;
         let computerCount = 0;
         let tieCount = 0;
@@ -83,7 +87,7 @@
             } else {
                 tieCount++;
             }
-        }
+        } */
         if (playerCount > computerCount) {
             console.log("You Defeated the Computer: " + playerCount + " to " + computerCount + ".")
         } else if (playerCount < computerCount) {
@@ -95,7 +99,7 @@
     }
    // console.log(computerSelection());
    // console.log(playRound(playerSelection,computerSelection));
-    game();
+   // game();
     </script>
 </body>
 </html>
